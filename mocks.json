@@ -1,0 +1,34 @@
+[
+  {
+    "request": {"method":"GET","path":"/hello"},
+    "response": {"status":200,"body":"{\"message\":\"Hello World\"}"}
+  },
+  {
+    "request": {"method":"GET","path":"/user/{id:int}"},
+    "response": [
+      {"status":200,"body":"{\"id\":{{id}},\"name\":\"Alice\"}"},
+      {"status":200,"body":"{\"id\":{{id}},\"name\":\"Bob\"}"}
+    ]
+  },
+  {
+    "request": {"method":"POST","path":"/login","body":{"username":"admin","password":"secret"}},
+    "strictBody": true,
+    "response": {"status":200,"body":"{\"token\":\"abcdef\"}"}
+  },
+  {
+    "request": {"method":"POST","path":"/feedback"},
+    "response": {"status":201,"body":"{\"status\":\"ok\"}"}
+  },
+  {
+    "request": {"method":"PUT","path":"/user/{id:int}"},
+    "response": {"status":200,"body":"{\"updated\":true}"}
+  },
+  {
+    "request": {"method":"DELETE","path":"/user/{id:int}"},
+    "response": {"status":204,"body":""}
+  },
+  {
+    "request": {"method":"PATCH","path":"/user/{id:int}"},
+    "response": {"status":200,"body":"{\"patched\":true}"}
+  }
+]
