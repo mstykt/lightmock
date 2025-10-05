@@ -23,7 +23,7 @@ LightMock is a fast, lightweight mock server ideal for API development, test aut
 ## ⚙️ Installation
 
 ```bash
-git clone https://github.com/yourusername/lightmock.git
+git clone https://github.com/mstykt/lightmock.git
 cd lightmock
 mvn clean package
 
