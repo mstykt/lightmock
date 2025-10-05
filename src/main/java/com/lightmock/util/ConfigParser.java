@@ -15,10 +15,10 @@ import java.util.List;
  */
 public class ConfigParser {
 
-    private static final ObjectMapper jsonMapper = new ObjectMapper()
+    private static final ObjectMapper JSON_MAPPER = new ObjectMapper()
             .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
-    private static final ObjectMapper yamlMapper = new ObjectMapper(new YAMLFactory())
+    private static final ObjectMapper YAML_MAPPER = new ObjectMapper(new YAMLFactory())
             .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
     /**
@@ -34,9 +34,9 @@ public class ConfigParser {
         String name = file.getName().toLowerCase();
         Endpoint[] endpoints;
         if (name.endsWith(".yaml") || name.endsWith(".yml")) {
-            endpoints = yamlMapper.readValue(file, Endpoint[].class);
+            endpoints = YAML_MAPPER.readValue(file, Endpoint[].class);
         } else if (name.endsWith(".json")) {
-            endpoints = jsonMapper.readValue(file, Endpoint[].class);
+            endpoints = JSON_MAPPER.readValue(file, Endpoint[].class);
         } else {
             throw new IllegalArgumentException("Unsupported file type: " + file.getName());
         }
